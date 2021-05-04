@@ -36,4 +36,3 @@ if (parOImpar % 2 === 0){
 }else{
     console.log(`el numero ${parOImpar} es impar`)
 }
-
