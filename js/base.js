@@ -1,38 +1,39 @@
 console.log('First Exercise')
 
-/*
-	Ejercicio 1:
-	Pedir 2 variables por prompt
-	Si a > b dividir a entre b
-	Si a < b dividir sumar a más b
-	si a == b multiplicar ambos numeros
-	Imprimir el resultado en consola
-*/
+/* Operadores de asignacion
+=
++=
+-=
+*=
+/=
+%=
+Fin*/
 
-const a = parseInt(window.prompt('Cual es la variable a '))
-const b = parseInt(window.prompt('Cual es la variable b '))
-let result
 
-if ( a > b){
-    result = a / b
-}else if (a < b){
-    result = a + b
-}else {
-    result = a * b
-}
+/* Operadores de comparacion
+== igual
+!= no es igual
+=== estrictamente igual
+!== estrictamente desigual
+> mayor que
+>= mayor o igual que
+< menor que
+<= menor o igual que
+Fin*/
 
-console.log (result)
 
-/***
-	Pedir por el promt un numero, y comprobar si es par o impar
-*/
+/* Operadores logicos
+&& and
+|| or
+!= not
+Fin*/
 
-const parOImpar = parseInt(window.prompt("Dame un numero"))
-console.log(parOImpar)
+/* Operador condicional ternario
 
-if (parOImpar % 2 === 0){
-    console.log(`el numero ${parOImpar} es par`)
-    // console.log('el numero ' + parOImpar + ' es par')
-}else{
-    console.log(`el numero ${parOImpar} es impar`)
-}
+expresion ? true : false
+Fin*/
+
+let a = 5
+let b = 6
+
+a > b ? console.log('a es mayor') : console.log('a es menor')
