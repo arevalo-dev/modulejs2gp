@@ -1,39 +1,30 @@
-console.log('First Exercise')
+/**
+ * For
+ * Escribir un programa de arroje la suma de los multiplos de 3, 5 o 7 que hay entre 1 y 100
+ * 
+ */
 
-/* Operadores de asignacion
-=
-+=
--=
-*=
-/=
-%=
-Fin*/
-
-
-/* Operadores de comparacion
-== igual
-!= no es igual
-=== estrictamente igual
-!== estrictamente desigual
-> mayor que
->= mayor o igual que
-< menor que
-<= menor o igual que
-Fin*/
+for (let i = 1, i <= 100, i++){
+    
+}
 
 
-/* Operadores logicos
-&& and
-|| or
-!= not
-Fin*/
+/*
+* While
+* Escribir un programa que le pida al usuario un numero
+* que imprima en consola el n umero dado si es positivo
+* si el numero es negativo, salir del ciclo.
+*/
 
-/* Operador condicional ternario
+var number = parseInt(window.prompt())
 
-expresion ? true : false
-Fin*/
-
-let a = 5
-let b = 6
-
-a > b ? console.log('a es mayor') : console.log('a es menor')
+/**
+ * Dado los siguientes 2 strings
+ * 'smtp'
+ * 'aeiou'
+ * Imprimir en consola las siguientes combinaciones
+ * -> sa, se, si, so , su 
+ * -> ma, me, mi, mo , mu 
+ * -> ta, te, ti, to , tu 
+ * -> pa, pe, pi, po , pu
+ */
