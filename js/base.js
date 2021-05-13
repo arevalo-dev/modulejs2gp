@@ -1,148 +1,102 @@
-/**
- * Convertidor de temperatura
- * Generar una función, que reciba (grados, entrada, salída ) 
- * Default es ºC a ºF
- * p.ej. (100,c,f) -> 100 ºC a ºF -> Default
- * p.ej. (100,f,c) -> 100 ºF a ºC
- * C to F -> (celsius*9)/5 + 32
- * F to C -> ((fahrenheit - 32)*5)/9
- *
- */
+console.log ('Metodos de Array')
 
- function celsiusToF(temp, initial = "c", finish = "f") {
-    if (initial == "c" && finish == "f") {
-        let result = (temp * 9) / 5 + 32
-        return `Su temperatura es ${result} grados Celsius`
-    }
-    if (initial == "f" && finish == "c") {
-        let result = ((temp - 32)*5)/9
-        return `Su temperatura es ${result} grados Fahrenheit`
-    }
+let arrFor = [1,2,3,4] 
+
+for(let i = 0; i <= 3; i ++){
+    console.log(arrFor[i])
 }
 
-/**
- * Ejercicio
- * Simular el funcionamiento de un cajero
- * 
- * considerar estas acciones
- * 1. Retiro de efectivo (cantidad)
- * 2. Depósito (cantidad)
- * 3. Consulta de saldo () 
- * 4. Traspasar a la cuenta 1234 $500 (cuenta, cantidad)
- * 
- * Datos iniciales
- * Saldo inicial: $2000
- * Consultas de saldo = 2000
- * Depósitos = 0
- * Retiros = 0
- * 
- * 
- * Pasos a ejecutar
- * 1. Depositar 2000
- * 2. Retirar 450
- * 3. Consultar saldo
- * 4. Retirar 400
- * 5. Consultar saldo
- * 
- */
+// .forEach
 
-var saldoInicial = 2000
-var saldoActual = saldoInicial
-var consultas = 0
-var depositos = 0
-var retiros = 0
-var traspasos = 0
+arrFor.forEach( (currentValue, index, arr) => {
+    console.log(index, currentValue, arr)
+    //currentValue => devuelve el valor contenido en el indice
+    //index => devuelve la posicion en el array
+    //arr => devuelve el array completo
+})
 
-function retirar (cantidad){
-    if (cantidad > 0){
-        if(saldoActual >= cantidad){
-            saldoActual -= cantidad
-            retiros += 1
-            return "Retiro Exitoso"
-        }else{
-            return "Saldo Insuficiente"
-        } 
-    }else{
-        return "Ingresa un numero mayor que cero"
+
+// Ejercicio 1 .forEach()
+// Dado un array con solo números
+// obtener el valor mas alto
+// input: [1,4,3,2,5]
+// output: -> 5
+
+let arrayNumbers = [1,4,3,2,5]
+let numMax = 0
+arrayNumbers.forEach( value => {
+    if (value >= numMax){
+        numMax = value
     }
-}
+    return numMax
+})
 
-function depositar (cantidad){
-    if (cantidad > 0){
-        saldoActual += cantidad
-        depositos += 1
-        return "Deposito abonado a su cuenta con Exito"
-    }else{
-        return "Ingresa un numero mayor que cero"
-    }
-}
+console.log(numMax)
 
-function consultarSaldo (){
-    consultas += 1
-    return saldoActual
-}
 
-function traspasar (cuentaDestino, cantidad){
-    if(cantidad > 0){
-        if(saldoActual >= cantidad){
-            saldoActual -= cantidad
-            traspasos += 1
-            return `Traspaso a la cuenta ${cuentaDestino}, se realizo exitosamente`
-        } else{
-            return "Saldo Insuficiente"
+// ejercicio 2 .forEach() o .map() o for()
+// función
+// convertir todos los elementos numericos de un array
+// a strings
+// input: [1,2,3,4,5]
+// output -> ['1,','2','3','4','5']
+
+
+var arrElement = [1,2,3,4,5]
+var newArray = arrElement.map( value => value.toString() )
+
+
+// funcion que dados 2 parametros .forEach() o .map() o for()
+// p1 = año de inicio
+// p2 = año de fin
+// y devuelva un array con los años que son bisiestos
+// que se encuentran en ese rango
+// [1990, 2000, 2001, 2020]
+// -> [2000,2020]
+
+const bisiesto = (start, end) => {
+    let leadYears = []
+    for(let i = start; i <= end; i ++){
+        if ( i % 4 == 0 || (i % 4 == 0 && i % 100 == 0 && i % 400 == 0)){
+            leadYears.push(i)
         }
-    }else{
-        return "Ingresa un numero mayor que cero"
     }
+    return leadYears
 }
 
 
-var saldoInicial = 2000
-var saldoActual = saldoInicial
-var consultas = 0
-var depositos = 0
-var retiros = 0
-var traspasos = 0
+// .filter()
 
-const retirar = function (cantidad){
-    if (cantidad > 0){
-        if(saldoActual >= cantidad){
-            saldoActual -= cantidad
-            retiros += 1
-            return "Retiro Exitoso"
-        }else{
-            return "Saldo Insuficiente"
-        } 
-    }else{
-        return "Ingresa un numero mayor que cero"
-    }
-}
-
-const depositar = function(cantidad){
-    if (cantidad > 0){
-        saldoActual += cantidad
-        depositos += 1
-        return "Deposito abonado a su cuenta con Exito"
-    }else{
-        return "Ingresa un numero mayor que cero"
-    }
-}
-
-const consultarSaldo = function(){
-    consultas += 1
-    return saldoActual
-}
-
-const traspasar = function(cuentaDestino, cantidad){
-    if(cantidad > 0){
-        if(saldoActual >= cantidad){
-            saldoActual -= cantidad
-            traspasos += 1
-            return `Traspaso a la cuenta ${cuentaDestino}, se realizo exitosamente`
-        } else{
-            return "Saldo Insuficiente"
+const filtrarPares = (arrayAFiltrar) => {
+    let arrFilter = arrayAFiltrar.filter( (currentValue) => {
+        if (currentValue % 2 === 0 ){
+            return currentValue
         }
-    }else{
-        return "Ingresa un numero mayor que cero"
-    }
+    })
+    return arrFilter
 }
+
+const filtrarPares = (arrayAFiltrar) => {
+    return arrayAFiltrar.filter( (currentValue) => {
+        if (currentValue % 2 === 0 ){
+            return currentValue
+        }
+    })
+    //se elimino esta linea y se pasa a la linea 80
+}
+
+//aplicando reduccion
+const filtrarPares = arr => arr.filter( currenteValue => currentValue % 2 === 0 ? currentValue : '')
+
+//reduccion con ternario
+const filtrarPares = arr => arr.filter( cv => cv % 2 === 0 ? cv : '')
+
+//reduccion con ternario y valor de retorno por default
+const filtrarPares = arr => arr.filter( cv => cv % 2 === 0)
+
+
+
+// .map()
+INVESTIGAR 
+
+// .reduce()
