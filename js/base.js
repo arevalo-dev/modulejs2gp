@@ -95,7 +95,6 @@ const filtrarPares = arr => arr.filter( cv => cv % 2 === 0 ? cv : '')
 const filtrarPares = arr => arr.filter( cv => cv % 2 === 0)
 
 
-
 // .map()
 INVESTIGAR 
 
