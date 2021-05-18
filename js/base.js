@@ -1,76 +1,170 @@
+console.log("Objetos")
 
-// .map()
-
-// funcion que dado un array
-// genere un nuevo array con los mismos numeros como strings
-// function stringItUp(arr) {
-//     // sentences
-// }
-//console.log(stringItUp([2, 5, 100]));
-// ["2", "5", "100"]
-
-
-// function capitalizeNames(arr) {
-//     // sentences
-// }
-//console.log(capitalizeNames(["jorge", "antOnio", "jUan", "victor"]))
-// ["Jorge", "Antonio", "Juan", "Victor"]
-
-
-// Dados 2 arrays
-// array de nombres
-// array de apellidos
-// Crear una funcion que reciba los 2 arrays, 
-// y retorne un array con los nombres completos
-
-
-const joinNames = (arrNames, arrSurnames) => {
-    return arrNames.map((value, index)=>`${value} ${arrSurnames[index]}`)
+let koder = {
+    name: 'rose',
+    lastName: 'ortega',
+    gender: 'F',
+    age: 20,
+    getFullName : function(){
+        return `${this.name} ${this.lastName}`
+    }
 }
 
-let name = ["jorge", "luis"]
-let lastName = ["camarillo", "cristobal"]
-let fullName = joinNames(name, lastName)
-console.log (fullName)
+let fullNamekoder = koder.getFullName()
+let ageKoder = koder.age
 
-//console.log( joinNames( ["jorge", "luis"], ['camarillo', 'cristobal'] ) )
-// ["jorge camarillo ", "luis cristobal"]
+console.log(fullNamekoder, ageKoder)
 
-// .reduce()
+// convertir un array de arrays 
+// a un array de objetos
+// [
+//     ['entrada','principal','postre','precio']
+// ]
+// [
+//     {
+//         entrada: "value",
+//         principal: "value",
+//         postre: "value",
+//         precio: value
+//     }
+// ]
 
-const totalAverage = arr => {
-    return arr.reduce((acumulador, currentValue) =>{
-        return acumulador + currentValue
-    }, 0)
+let pedidos= [
+    {
+        entrada:'ensalada de pepinos',
+        principal:'paella',
+        postre:'platano',
+        precio:100
+    },
+    {
+        entrada:'ensalada de tomates',
+        principal:'pescado',
+        postre:'helado',
+        precio:120
+    },
+    {
+        entrada:'ensalada simple',
+        principal:'paella',
+        postre:'yogurt',
+        precio:80
+    },
+    {
+        entrada:'ensalada simple',
+        principal:'enchiladas',
+        postre:'yogurt',
+        precio:80
+    },
+    {
+        entrada:'ensalada cesar',
+        principal:'salmón',
+        postre:'platano',
+        precio:100
+    }
+]
+
+// Se imprimen todos los pedidos
+// pedidos.forEach((value)=>{
+//     console.log(value)
+// })
+
+// Se imprimen solo los precios
+// pedidos.forEach((value)=>{
+//     //tomo la propiedad precio del objeto iterado
+//     console.log(value.precio)
+// })
+
+
+
+//     Funcion que devuelve el total de pedidos que tienen como plato principal "paella"
+// const principal = pedidos.filter( (cv)=> {
+//     if(cv.principal === 'paella'){
+//         return cv
+//     }
+// }, 0).length
+
+const principal = pedidos.filter( cv=> cv.principal === 'paella' ? cv: '', 0).length
+console.log(principal)
+
+
+
+//     Funcion que devuelve los pedidos que tienen como postre "platano" o "helado" 
+
+// const postre = pedidos.filter( (cv)=> {
+//     if(cv.postre === 'platano' || cv.postre === 'helado'){
+//         return cv
+//     }
+// })
+
+const postres = pedidos.filter( cv=> cv.postre === 'platano' || cv.postre === 'helado' ? cv: '')
+console.table(postres)
+
+
+
+//     Funcion que devuelve los pedidos que tengen un precio superior a 90 
+
+// const pedidoNoventa = pedidos.filter( (cv)=> {
+//     if(cv.precio > 90){
+//         return cv
+//     }
+// })
+
+const pedidoNoventa = pedidos.filter( cv=> cv.precio > 90 ? cv: '')
+console.table(pedidoNoventa)
+
+
+
+//     Funcion que devuelve los pedidos que tengen un precio inferior a 90 
+// const pedidoMNoventa = pedidos.filter( (cv)=> {
+//     if(cv.precio < 90){
+//         return cv
+//     }
+// })
+
+const pedidoMNoventa = pedidos.filter( cv=> cv.precio < 90 ? cv: '')
+console.table(pedidoMNoventa)
+
+var library = []
+
+let objPedido = {
+    entrada:'ensalada de pepinos',
+    principal:'paella',
+    postre:'platano',
+    precio:100,
+    coords: [43.322001, -99.00002]
 }
 
-let array = [1,2,3]
-console.log(totalAverage(array))
+// for (item in objPedido){
+//     if (item === "coords" || typeof objPedido[item] === 'object'){
+//         console.log(`Lat: ${objPedido[item][0]}, Long: ${objPedido[item][1]}`)
+//     }else{
+//         console.log(objPedido[item])
+//     }
+// } 
 
+let keys = Object.keys (objPedido)
+console.log(keys)
+// devuelve las llaves de un objeto en array
+// (5) ["entrada", "principal", "postre", "precio", "coords"]
 
-// function stringConcat(arr) {
-//     return arr.reduce((acc, cv) => { 
-//         return acc + cv
-//     },'')
-// }
+// keys.forEach((item)=>{
+//     if (item === "coords" || typeof objPedido[item] === 'object'){
+//         console.log(`Lat: ${objPedido[item][0]}, Long: ${objPedido[item][1]}`)
+//     }else{
+//         console.log(objPedido[item])
+//     }
+// })
 
-const stringConcat = arr => arr.reduce((acc,cv) => acc+cv,'')
+let entries = Object.entries(objPedido)
+console.log(entries)
+// convierte un objeto en arrays dentro de arrays
+// (5) [Array(2), Array(2), Array(2), Array(2), Array(2)]
 
-let myArray = [1,2,3]
-console.log(stringConcat(myArray))
+let values = Object.values(objPedido)
+console.log(values)
+// devuelve los valores contenidos en las llaves de un objeto
+// (5) ["ensalada de pepinos", "paella", "platano", 100, Array(2)]
 
-//console.log(stringConcat([1, 2, 3])); // "123"
-
-
-
-// function totalShoppingCart(arr) {
-//     return arr.reduce((acc, cv)=>{
-//         return acc + cv[1]
-//     }, 0)
-// }
-
-const totalShoppingCart = arr => arr.reduce( (acc,cv)=> acc+cv[1],0 )
-let arr = [ ["Reloj", 500], ["Reloj", 300], ["Reloj", 1200] ] 
-const totalAPagar = totalShoppingCart(arr)
-console.log(`Total a pagar: ${totalAPagar}`)
-// 2000
+values.forEach((value) =>{
+    console.log(value)
+})
+// hace una iteracion y devuelve los valores estraidos de un objeto con el metodo values
