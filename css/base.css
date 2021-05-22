@@ -3,6 +3,13 @@ h1{
 }
 
 body{
-  background-image: url(/js/JavaScript.png);
+  background-size: 1550px;
+  background-image: url(/js/backJS.png);
   background-attachment: fixed;
+}
+
+
+button:hover{
+    background-color: gray;
+    color: #fff;
 }
