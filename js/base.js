@@ -1,54 +1,105 @@
-console.log("BOM")
+// console.log("BOM")
 
-// DOM -> Document Object Model
-// BOM -> Browser Object Model
+// POST
 
-// window
-//     document // DOM
+// let Koders = {
+//     name : 'victor',
+//     lastname : 'arevalo',
+//     age: 28,
+//     position : 'koder'
+// }
+// const request = new XMLHttpRequest()
+// request.open('POST','https://python2g-default-rtdb.firebaseio.com/koders/.json')
+// request.addEventListener('readystatechange', () => {
+//     if(request.readyState !== 4) {
+//         return 
+//     } else {
+//         if(request.status >= 200 && request.status <= 299){
+//             const response  = request
+//             const objectResponse = JSON.parse(response.responseText)
+//             console.log(objectResponse)
+//         } else {
+//             console.log('No se pudo ejecutar')
+//         }
+//     } 
+// })
+// request.send(
+//     JSON.stringify(Koders)
+// )
 
-//     location // Bom
-//     navigator // Bom
-//     history // Bom
+// {name: "-MaWDwdbPSr029XX0CKM"}
 
-let koders = [
-    {
-        id: 1,
-        name: 'Jorge',
-        bio: 'lLorem ipsum dolor sit amet consectetur, adipisicing elit. Nam, quia?',
-        git: '/dered-dev',
-        imgkoder:'https://picsum.photos/200'
-    },
-    {
-        id: 2,
-        name: 'Antonio',
-        bio: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam, quia?',
-        git: '/rose-dev',
-        imgkoder:'https://picsum.photos/200'
-    }   
-]
+// DELETE
 
-// console.log(koders)
-// http://127.0.0.1:5500/?idkoder=233443
-let search = window.location.search
-let start = search.indexOf('=') + 1
-let idkoder = parseInt(search.slice(start))
+// const requestDelete = new XMLHttpRequest()
+// let  idKoder = '-MaWDwdbPSr029XX0CKM'
+// requestDelete.open('DELETE',`https://python2g-default-rtdb.firebaseio.com/koders/${idKoder}.json`)
+// requestDelete.addEventListener('readystatechange', () => {
+//     if(requestDelete.readyState !== 4) {
+//         return 
+//     } else {
+//         if(requestDelete.status >= 200 && requestDelete.status <= 299){
+//             const response  = requestDelete
+//             const objectResponse = JSON.parse(response.responseText)
+//             console.log(objectResponse)
+//         } else {
+//             console.log('No se pudo ejecutar')
+//         }
+//     } 
+// })
+// requestDelete.send()
 
 
-let koderObject = koders.filter((koder)=> {
-    if(koder.id === idkoder){
-        return  koder
-    }
-})[0]
+// UPDATE
+//PUT
 
-const printKoder = (objkoder) => {
-    let {id, name, bio, git, imgkoder } = objkoder
-    // document.querySelector('.img').setAttribute('src', imgkoder)
-    document.querySelector('.card-title').innerText = name
-    document.querySelector('.card-text').innerText = bio
-    document.querySelector('.btn-primary').innerText = git
-    document.querySelector('.btn-primary').setAttribute('href',`https://github.com${git}`)
-    document.querySelector('.btn-primary').setAttribute('target','_blank')
-}
+// let Koders = {
+//     name : 'Victor',
+//     lastname : 'Arevalo',
+//     age: 26,
+//     position : 'Koder'
+// }
 
-printKoder(koderObject)
+// const requestPut = new XMLHttpRequest()
+// requestPut.open('PUT','https://python2g-default-rtdb.firebaseio.com/koders/-MaWM7MOarfwaF_iAY7a.json')
+// requestPut.addEventListener('readystatechange', () => {
+//     if(requestPut.readyState !== 4) {
+//         return 
+//     } else {
+//         if(requestPut.status >= 200 && request.status <= 299){
+//             const response  = request
+//             const objectResponse = JSON.parse(response.responseText)
+//             console.log(objectResponse)
+//         } else {
+//             console.log('No se pudo ejecutar')
+//         }
+//     } 
+// })
+// requestPut.send(
+//     JSON.stringify(Koders)
+// )
 
+//PATCH
+
+// let Koders = {
+//     age: 28
+// }
+
+// const requestPatch = new XMLHttpRequest()
+// requestPatch.open('PATCH','https://python2g-default-rtdb.firebaseio.com/koders/-MaWM7MOarfwaF_iAY7a.json')
+// requestPatch.addEventListener('readystatechange', () => {
+//     if(requestPatch.readyState !== 4) {
+//         return 
+//     } else {
+//         if(requestPatch.status >= 200 && requestPatch.status <= 299){
+//             const response  = request
+//             const objectResponse = JSON.parse(response.responseText)
+//             console.log(objectResponse)
+//         } else {
+//             console.log('No se pudo ejecutar')
+//         }
+//     } 
+// })
+// requestPatch.send(
+//     JSON.stringify(Koders)
+// )
