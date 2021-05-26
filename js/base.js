@@ -103,3 +103,19 @@
 // requestPatch.send(
 //     JSON.stringify(Koders)
 // )
+
+
+// UTILIZANDO FETCH (PROMESAS)
+
+// const getAllKoders = ()=>{
+//     fetch('https://python2g-a1463-default-rtdb.firebaseio.com/koders/.json')
+//     .then(result =>{
+//         console.log(result)
+//         return result.json()
+//     })
+//     .then(response => {
+//         console.log(response)
+//     })
+// }
+
+// getAllKoders()
