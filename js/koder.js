@@ -15,10 +15,11 @@ request.addEventListener('readystatechange', () => {
             console.log(objectResponse)
             
             if(objectResponse !== null){
-                let {name, lastname, position, age} = objectResponse
+                let {name, lastname, position, age, github} = objectResponse
                 document.querySelector('.card-title').innerHTML = `${name} ${lastname}`  
                 document.querySelector('.card-text').innerHTML = `${position} <br> ${age} años`
-                document.querySelector('.card_id').innerHTML = `<small>${idkoder}</small>`
+                document.querySelector('.card_git').innerHTML = `Git Hub: <small>${github}</small>`
+                document.querySelector('.btnEdit').href=`/updateuser.html?idkoder=${idkoder}`
             }
 
         } else {
