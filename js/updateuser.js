@@ -1,12 +1,9 @@
 $(document).ready( ()=>{
-
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-   (function () {
+    
+    const validations = () => {
         'use strict'
-      
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
         var forms = document.querySelectorAll('.needs-validation')
-      
         // Loop over them and prevent submission
         Array.prototype.slice.call(forms)
           .forEach(function (form) {
@@ -14,11 +11,13 @@ $(document).ready( ()=>{
               if (!form.checkValidity()) {
                 event.preventDefault()
                 event.stopPropagation()
+              }else{
+                update(idkoder)
               }
               form.classList.add('was-validated')
             }, false)
           })
-      })()
+      }
 
 
     const params = new URLSearchParams(window.location.search)
@@ -62,7 +61,10 @@ $(document).ready( ()=>{
     }
     
     $('#btnUpdate').click((event)=>{
-            event.preventDefault()
-            update(idkoder)
+        validations()
+        // if ($('#name').hasClass('was-validated') && $('#lastname').hasClass('was-validated') && $('#age').hasClass('was-validated') && $('#github').hasClass('was-validated') && $('#position').hasClass('was-validated')){
+        //     event.preventDefault()
+        //     update(idkoder)
+        // }
     })
 })

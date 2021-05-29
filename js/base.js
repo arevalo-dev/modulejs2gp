@@ -1,18 +1,31 @@
-// console.log("BOM")
+let map;
 
-$(document).ready( ()=>{
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: new google.maps.LatLng(-33.91722, 151.23064),
+    zoom: 16,
+  });
+  const iconBase =
+    "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
+  const icons = {
+    parking: {
+      icon: '/assets/kode.png',
+    },
+  };
+  const features = [
+    {
+      position: new google.maps.LatLng(-33.91721, 151.2263),
+      type: "parking",
+    },
+    
+  ];
 
-// $('.container > div').addClass('list')
-// $('ol li').addClass('List_item')
-
-
-for (let i = 0; i<10; i++){
-    $('.container ul').append('<li></li>')
-    $('.container ol').prepend('<li></li>')
+  // Create markers.
+  for (let i = 0; i < features.length; i++) {
+    const marker = new google.maps.Marker({
+      position: features[i].position,
+      icon: icons[features[i].type].icon,
+      map: map,
+    });
+  }
 }
-
-$('.content').html('<p>Hola Koder</p>').css({'background': '#333', 'color': '#fff'})
-$('h2').text('Learning Jquery')
-
-
-})
